@@ -2,9 +2,9 @@
 
 `Step 1`
 
-> Add your GOOGLE_API_KEY in the .env file
+Add your GOOGLE_API_KEY to the .env file
 
 `Step 2`
 
-> Run start.sh
+Run start.sh
 
