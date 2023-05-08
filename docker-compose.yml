@@ -1,0 +1,27 @@
+services:
+  app:
+    image: node:19
+    command: sh -c "npm install && npm start"
+    ports:
+      - 8080:8080
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DB: test
+
+  database:
+    image: mysql:latest
+    container_name: mysql-database
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - test-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+
+volumes:
+  test-mysql-data:
